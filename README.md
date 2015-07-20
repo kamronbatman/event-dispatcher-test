@@ -1,6 +1,6 @@
 # Event Dispatcher Test
 
-The cart sample includes a Vagrantfile, behat tests and plain old PHP objects (POPOs) that model the functionality of a basic shopping cart.
+The event dispatcher test is about creating a way to de-couple events and callbacks.
 
 [![Build Status](https://travis-ci.org/hautelook/event-dispatcher-test.svg)](https://travis-ci.org/hautelook/event-dispatcher-test)
 
