@@ -36,7 +36,7 @@ Here is a high level overview of the important files in this project:
 
 ## Challenge
 
-The first scenario has been written for you. Please implement as many of the remaining scenarios in `events.js` as you can within the next 60 minutes. We are judging you on the simplcity of your design and the correctness of the code. Make whatever changes you want to the scenario implementations and source code to accomplish that goal. Do not worry if you cannot finish all of them. Find a good stopping point and send us what you have. We are excited to see it! Zip up the entire directory and email it back to us.
+The first scenario has been written for you. Please implement as many of the remaining scenarios in `events.js` as you can within the next 60 minutes. We are judging you on the simplicity of your design and the correctness of the code. Make whatever changes you want to the scenario implementations and source code to accomplish that goal. Do not worry if you cannot finish all of them. Find a good stopping point and send us what you have. We are excited to see it! Zip up the entire directory and email it back to us.
 
 ### Support
 
