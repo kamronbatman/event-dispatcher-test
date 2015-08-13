@@ -6,8 +6,6 @@ The event dispatcher test is about creating a way to de-couple events and callba
 
 ## Requirements
 
-The cart sample uses Vagrant to provision and configure a Virtual Machine that satisfies all the dependencies for the code to work.
-
    * node.js 0.12 or higher
 
 ## Installation
