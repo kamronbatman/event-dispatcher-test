@@ -6,12 +6,12 @@ The event dispatcher test is about creating a way to de-couple events and callba
 
 ## Requirements
 
-   * node.js 0.12 or higher
+  * node.js 0.12 or higher
 
 ## Installation
 
-   * Make sure you have a working internet connection.
-   * Install npm packages by typing: `npm install`
+  * Make sure you have a working internet connection.
+  * Install npm packages by typing: `npm install`
 
 Note: We expect installation to take only a few minutes to setup. If for any reason it is taking longer, please feel free to reach out to us. We are happy to [help](#support).
 
@@ -29,8 +29,8 @@ The tests should complete without errors. The majority of the tests will be in a
 
 Here is a high level overview of the important files in this project:
 
-   * `events.js` - the event dispatcher code.
-   * `events.spec.js` - the Jasmine tests that define requirements for the event dispatcher.
+  * `events.js` - the event dispatcher code.
+  * `events.spec.js` - the Jasmine tests that define requirements for the event dispatcher.
 
 ## Challenge
 
