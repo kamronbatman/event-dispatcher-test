@@ -42,25 +42,16 @@ describe("Event Dispatcher", function() {
         expect(bar).toBe(5);
     });
 
-    xit("can trigger multiple callbacks on an event", function() {
-
-        (function() {
-            var baz = 'HauteLook';
-            
-            Events.on('foo', function() {
-                expect(baz).toBe('Nordstomrack');
-            });
-
-            baz = 'Nordstomrack';
-        })();
-
-        var bar = 1;
+    xit("can trigger multiple callbacks on an event", function(done) {
+        var calls = 0;
         Events.on('foo', function() {
-            bar = 2;
+            expect(++calls).toBe(1);
         });
-
+        Events.on('foo', function() {
+            expect(++calls).toBe(2);
+            done();
+        });
         Events.trigger('foo');
-        expect(bar).toBe(2);
     });
 
     xit("can remove callbacks from an event", function() {
