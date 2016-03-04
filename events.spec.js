@@ -1,24 +1,23 @@
 var Events = require('./events');
 
-describe("Event Dispatcher", function() {
-    it("is an object", function() {
-
-        expect(typeof Events).toBe("object");
+describe('Event Dispatcher', function() {
+    it('is an object', function() {
+        expect(typeof Events).toBe('object');
     });
 
-    xit("can register a callback", function() {
+    xit('can register a callback', function() {
         Events.on('foo', function() {
             return 'bar';
         });
     });
 
-    xit("can register a callback with a scope", function() {
+    xit('can register a callback with a scope', function() {
         Events.on('foo', function() {
             return 'bar';
         }, this);
     });
 
-    xit("can trigger an event", function() {
+    xit('can trigger an event', function() {
         var bar = 1;
 
         Events.on('foo', function() {
@@ -30,7 +29,7 @@ describe("Event Dispatcher", function() {
         expect(bar).toBe(2);
     });
 
-    xit("can trigger an event with arguments", function() {
+    xit('can trigger an event with arguments', function() {
         var bar = 1;
 
         Events.on('foo', function(v) {
@@ -42,7 +41,7 @@ describe("Event Dispatcher", function() {
         expect(bar).toBe(5);
     });
 
-    xit("can trigger multiple callbacks on an event", function(done) {
+    xit('can trigger multiple callbacks on an event', function(done) {
         var calls = 0;
         Events.on('foo', function() {
             expect(++calls).toBe(1);
@@ -54,7 +53,7 @@ describe("Event Dispatcher", function() {
         Events.trigger('foo');
     });
 
-    xit("can remove callbacks from an event", function() {
+    xit('can remove callbacks from an event', function() {
         var bar = 1;
 
         Events.on('foo', function() {
@@ -67,7 +66,7 @@ describe("Event Dispatcher", function() {
         expect(bar).toBe(2);
     });
 
-    xit("can remove specific callbacks from an event", function() {
+    xit('can remove specific callbacks from an event', function() {
         var bar = 1;
 
         var adder = function(v) {
