@@ -23,7 +23,13 @@ After installation, confirm the tests are working:
 $ npm test
 ```
 
-The tests should complete without errors. The majority of the tests will be in a pending state.
+There is also a watch task you can use to re-run all the tests if a change is detected:
+
+```bash
+$ npm run watch
+```
+
+The tests should complete without errors. The majority of the tests will be in a pending state. Please activate each test, individually, as you implement features.
 
 ## Code Layout
 
@@ -39,5 +45,3 @@ The first scenario has been written for you. Over the next 60 minutes please imp
 ### Support
 
 Need help? Please reach out to us! We know computers can be tricky things and we are happy to assist you. Our contact details are in the email we sent you. We will get back to you as soon as we can.
-
-

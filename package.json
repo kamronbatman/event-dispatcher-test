@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "test": "jasmine-node --test-dir ./"
+    "test": "jasmine-node --test-dir . --color",
+    "watch": "jasmine-node --test-dir . --color --autotest"
   },
   "devDependencies": {
     "jasmine-core": "2.3.4",
