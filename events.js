@@ -1,3 +1,2 @@
-module.exports = (function() {
-    return {};
-})();
+function Events() {}
+module.exports = Events;
