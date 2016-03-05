@@ -1,90 +1,92 @@
+/*eslint-env jasmine */
+
 var Events = require('./events');
 
-describe("Event Dispatcher", function() {
-    it("is an object", function() {
+describe('Event Dispatcher', function() {
 
-        expect(typeof Events).toBe("object");
+    var events;
+    beforeEach(function() {
+        events = new Events();
     });
 
-    xit("can register a callback", function() {
-        Events.on('foo', function() {
-            return 'bar';
-        });
+    it('is a function', function() {
+        expect(typeof Events).toBe('function');
     });
 
-    xit("can register a callback with a scope", function() {
-        Events.on('foo', function() {
-            return 'bar';
-        }, this);
+    xit('can register a callback', function() {
+        events.on('foo', function() {});
     });
 
-    xit("can trigger an event", function() {
-        var bar = 1;
-
-        Events.on('foo', function() {
-            bar = 2;
-        });
-
-        Events.trigger('foo');
-
-        expect(bar).toBe(2);
+    xit('can register a callback with a scope', function() {
+        events.on('foo', function() {}, this);
     });
 
-    xit("can trigger an event with arguments", function() {
-        var bar = 1;
+    xit('can trigger an event', function() {
+        var listener = jasmine.createSpy('listener');
+        events.on('foo', listener);
 
-        Events.on('foo', function(v) {
-            bar = v;
-        });
+        events.trigger('foo');
 
-        Events.trigger('foo', 5);
-
-        expect(bar).toBe(5);
+        expect(listener).toHaveBeenCalled();
     });
 
-    xit("can trigger multiple callbacks on an event", function(done) {
-        var calls = 0;
-        Events.on('foo', function() {
-            expect(++calls).toBe(1);
-        });
-        Events.on('foo', function() {
-            expect(++calls).toBe(2);
+    xit('can trigger an event registered with scope', function(done) {
+        var scope = {};
+
+        events.on('foo', function() {
+            expect(this).toBe(scope);
             done();
-        });
-        Events.trigger('foo');
+        }, scope);
+
+        events.trigger('foo');
     });
 
-    xit("can remove callbacks from an event", function() {
-        var bar = 1;
+    xit('can trigger an event with arguments', function() {
+        var listener = jasmine.createSpy('listener');
+        events.on('foo', listener);
 
-        Events.on('foo', function() {
-            bar += 1;
-        });
+        events.trigger('foo', 'bar', 'baz');
 
-        Events.trigger('foo');
-        Events.off('foo');
-        Events.trigger('foo');
-        expect(bar).toBe(2);
+        expect(listener).toHaveBeenCalledWith('bar', 'baz');
     });
 
-    xit("can remove specific callbacks from an event", function() {
-        var bar = 1;
+    xit('can trigger multiple callbacks on an event', function() {
+        var listener1 = jasmine.createSpy('listener1');
+        var listener2 = jasmine.createSpy('listener2');
+        events.on('foo', listener1);
+        events.on('foo', listener2);
 
-        var adder = function(v) {
-            bar += v;
-        };
+        events.trigger('foo');
 
-        var multiplier = function(v) {
-            bar *= v;
-        };
+        expect(listener1).toHaveBeenCalled();
+        expect(listener2).toHaveBeenCalled();
+    });
 
-        Events.on('foo', adder);
-        Events.trigger('foo', 1);
-        expect(bar).toBe(2);
+    xit('can remove callbacks from an event', function() {
+        var listener = jasmine.createSpy('listener');
+        events.on('foo', listener);
 
-        Events.on('foo', multiplier)
-        Events.off('foo', adder);
-        Events.trigger('foo', 100);
-        expect(bar).toBe(200);
+        events.trigger('foo');
+        expect(listener.calls.length).toBe(1);
+
+        events.off('foo');
+        events.trigger('foo');
+        expect(listener.calls.length).toBe(1);
+    });
+
+    xit('can remove a specific callback from an event', function() {
+        var listener1 = jasmine.createSpy('listener1');
+        var listener2 = jasmine.createSpy('listener2');
+        events.on('foo', listener1);
+        events.on('foo', listener2);
+
+        events.trigger('foo');
+        expect(listener1.calls.length).toEqual(1);
+        expect(listener2.calls.length).toEqual(1);
+
+        events.off('foo', listener1);
+        events.trigger('foo');
+        expect(listener1.calls.length).toEqual(1);
+        expect(listener2.calls.length).toEqual(2);
     });
 });
