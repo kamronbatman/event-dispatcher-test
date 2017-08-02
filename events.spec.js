@@ -1,10 +1,10 @@
-/*eslint-env jasmine */
+/* eslint-env jasmine */
 
-var Events = require('./events');
+const Events = require('./events');
 
 describe('Event Dispatcher', function() {
 
-    var events;
+    let events;
     beforeEach(function() {
         events = new Events();
     });
@@ -22,7 +22,7 @@ describe('Event Dispatcher', function() {
     });
 
     xit('can trigger an event', function() {
-        var listener = jasmine.createSpy('listener');
+        const listener = jasmine.createSpy('listener');
         events.on('foo', listener);
 
         events.trigger('foo');
@@ -31,7 +31,7 @@ describe('Event Dispatcher', function() {
     });
 
     xit('can trigger an event registered with scope', function(done) {
-        var scope = {};
+        const scope = {};
 
         events.on('foo', function() {
             expect(this).toBe(scope);
@@ -42,7 +42,7 @@ describe('Event Dispatcher', function() {
     });
 
     xit('can trigger an event with arguments', function() {
-        var listener = jasmine.createSpy('listener');
+        const listener = jasmine.createSpy('listener');
         events.on('foo', listener);
 
         events.trigger('foo', 'bar', 'baz');
@@ -51,8 +51,8 @@ describe('Event Dispatcher', function() {
     });
 
     xit('can trigger multiple callbacks on an event', function() {
-        var listener1 = jasmine.createSpy('listener1');
-        var listener2 = jasmine.createSpy('listener2');
+        const listener1 = jasmine.createSpy('listener1');
+        const listener2 = jasmine.createSpy('listener2');
         events.on('foo', listener1);
         events.on('foo', listener2);
 
@@ -63,7 +63,7 @@ describe('Event Dispatcher', function() {
     });
 
     xit('can remove callbacks from an event', function() {
-        var listener = jasmine.createSpy('listener');
+        const listener = jasmine.createSpy('listener');
         events.on('foo', listener);
 
         events.trigger('foo');
@@ -75,8 +75,8 @@ describe('Event Dispatcher', function() {
     });
 
     xit('can remove a specific callback from an event', function() {
-        var listener1 = jasmine.createSpy('listener1');
-        var listener2 = jasmine.createSpy('listener2');
+        const listener1 = jasmine.createSpy('listener1');
+        const listener2 = jasmine.createSpy('listener2');
         events.on('foo', listener1);
         events.on('foo', listener2);
 

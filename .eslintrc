@@ -3,14 +3,21 @@
     "env": {
         "node": true
     },
+    "extends":[
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
     "rules": {
-        "camelcase": 2,
-        "consistent-return": 2,
-        "dot-notation": 2,
-        "new-cap": 2,
-        "no-underscore-dangle": 2,
-        "no-use-before-define": 2,
-        "quotes": [2, "single", "avoid-escape"],
-        "semi": [2, "always"]
+        "camelcase": "error",
+        "consistent-return": "error",
+        "dot-notation": "error",
+        "new-cap": "error",
+        "no-underscore-dangle": "error",
+        "no-use-before-define": "error",
+        "no-var": "error",
+        "quotes": ["error", "single", "avoid-escape"],
+        "semi": ["error", "always"]
     }
 }
