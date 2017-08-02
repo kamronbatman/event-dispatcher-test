@@ -89,4 +89,25 @@ describe('Event Dispatcher', function() {
         expect(listener1.calls.length).toEqual(1);
         expect(listener2.calls.length).toEqual(2);
     });
+
+    xit('can remove a specific callback registered with a scope from an event', function() {
+        const listener1 = jasmine.createSpy('listener1');
+        const listener2 = jasmine.createSpy('listener2');
+
+        const scope1 = {};
+        const scope2 = {};
+
+        events.on('foo', listener1, scope1);
+        events.on('foo', listener2, scope2);
+
+        events.trigger('foo');
+        expect(listener1.calls.length).toEqual(1);
+        expect(listener2.calls.length).toEqual(1);
+
+        events.off('foo', listener1);
+        events.trigger('foo');
+        expect(listener1.calls.length).toEqual(1);
+        expect(listener2.calls.length).toEqual(2);
+    });
+
 });
