@@ -3,14 +3,19 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "test": "npm run lint && npm run jasmine",
+    "test": "npm run lint && babel-node spec/run.js",
     "lint": "eslint events*.js",
     "jasmine": "jasmine-node --test-dir . --color",
     "watch": "jasmine-node --test-dir . --color --autotest"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "4.0.0",
-    "jasmine-core": "2.6.4",
+    "eslint-plugin-import": "^2.8.0",
+    "jasmine": "^2.8.0",
     "jasmine-node": "1.14.5"
   }
 }
