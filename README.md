@@ -1,5 +1,10 @@
 # Event Dispatcher Test
 
+# ACCORDING TO HAUTE LOOK - THIS SOLUTION IS DEFICIENT AND NOT WHAT WAS ASKED
+> The company declined to comment on what was actually expected.
+> It is possible the wording "implement all remaining scenarios" refers to implementing the usage of the functionality in addition to the functionality itself.
+> If you feel you understand what was asked for or you have a solution, feel free to open an issue ticket, or a PR.
+
 The event dispatcher test is about creating a way to de-couple events and callbacks.
 
 [![Build Status](https://travis-ci.org/hautelook/event-dispatcher-test.svg)](https://travis-ci.org/hautelook/event-dispatcher-test)
